@@ -1,0 +1,102 @@
+body {
+    font:15px Helvetica;
+    color: #383838;
+}
+
+a {
+    color: #383838;
+}
+
+#content {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.feed {
+    margin: 20px 0;
+    border: 1px #e6e6e6 solid;
+    border-radius: 3px;
+}
+
+.head { 
+    padding: 15px;
+    display: table;
+    width: 100%;
+}
+
+.head > * {
+    display: table-cell;
+}
+
+.photosq {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+.head h3 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    margin: 0 0 0 8px;
+}
+
+.head date {
+  text-align: right;
+  vertical-align: middle;
+}
+
+.feed  img {
+    width: 100%;
+}
+
+
+.text {
+    margin: 20px 25px 0px;
+}
+
+.coments {
+    list-style: none;
+    border-bottom: 1px #e6e6e6 solid;
+    padding: 0 0 19px;
+}
+
+.coments li {
+    margin: 0 0 7px;
+}
+
+.coments li:first-child {
+    margin: 0 0 10px;
+}
+
+form {
+    padding: 20px 0 20px;
+}
+
+
+form > p {
+    display: inline-block;
+    vertical-align: middle;
+     cursor: pointer;
+    background-image: url(../img/like.png);
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    margin: 0 5px 0 0;
+}
+
+ form > p:active {
+ opacity: 0.5;
+}
+
+.checkedlike {
+    background-image: url(../img/likeacktive.png);
+}
+

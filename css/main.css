@@ -38,6 +38,22 @@ a {
 }
 
 
+.drop {
+    white-space: nowrap;
+    
+    overflow: hidden;
+    
+    background-color: aqua;
+}
+
+.drop li {
+    outline: 1px solid red;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+}
 
 .head h3 {
     display: inline-block;

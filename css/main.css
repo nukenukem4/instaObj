@@ -10,6 +10,7 @@ a {
 #content {
     margin: 0 auto;
     max-width: 600px;
+    padding: 70px 0 0;
 }
 
 .feed {
@@ -17,6 +18,8 @@ a {
     border: 1px #e6e6e6 solid;
     border-radius: 3px;
 }
+
+
 
 .head { 
     padding: 15px;
@@ -40,19 +43,23 @@ a {
 
 .drop {
     white-space: nowrap;
-    
     overflow: hidden;
-    
-    background-color: aqua;
+    border: 1px #e6e6e6 solid;
+    border-radius: 3px;
+    position: relative;
 }
 
+.drop ul {
+    position: relative;
+    
+}
 .drop li {
-    outline: 1px solid red;
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     margin: 10px;
     border-radius: 50%;
+    background-color: aqua; 
 }
 
 .head h3 {

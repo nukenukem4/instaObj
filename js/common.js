@@ -106,3 +106,29 @@ var likeEl = document.getElementsByClassName("like");
 
    
 
+var div = document.getElementById("fly");
+var deltaX;
+
+
+function move(e) {
+	var pX = e.pageX;
+	div.style.left = (pX - deltaX) + "px";
+     
+    
+};
+
+function startDrag(e) {
+	var mouseX = e.pageX; // Get mouse coords
+	var divOffsetLeft = div.offsetLeft;
+	deltaX = mouseX - divOffsetLeft;
+
+	//console.log(divOffset);
+	window.addEventListener("mousemove", move);
+};
+
+function stopDrag() {
+	window.removeEventListener("mousemove", move);
+};
+
+div.onmousedown = startDrag;
+div.onmouseup = stopDrag;

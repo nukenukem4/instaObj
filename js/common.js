@@ -1,7 +1,17 @@
+
+
 var el = document.getElementById("content"); 
 
-var Person = {
-    render: function createItem() {
+function Item(UserName, UserPhoto, DateNum, UserPic, LikeNum, CommentsM) {
+    this.UserName = UserName;
+    this.UserPhoto = UserPhoto;
+    this.DateNum = DateNum;
+    this.UserPic = UserPic;
+    this.LikeNum = LikeNum;
+    this.CommentsM = CommentsM;
+};
+
+Item.prototype.render = function (){
 	var Feed = document.createElement("div");
 	Feed.setAttribute("class", "feed");
 
@@ -67,32 +77,23 @@ var Person = {
             Form.appendChild(Like);
             Form.appendChild(CommentInput);
     return Feed
-		},
-    constructor: function(UserName, UserPhoto, DateNum, UserPic, LikeNum, CommentsM){
-        this.UserName = UserName;
-        this.UserPhoto = UserPhoto;
-        this.DateNum = DateNum;
-        this.UserPic = UserPic;
-        this.LikeNum = LikeNum;
-        this.CommentsM = CommentsM;
-        
-        return this
-    },
+		};
+
+var users = [ 
+	["Ali", "img/profilePhoto.jpg", "02.03", "img/man.jpg",  235,  [["vasya", "Круто!!!"]]],
+	["Monro", "img/profilePhoto2.jpg", "04.04", "img/maunt.jpg",  321,  [["Alex", "like for like!!!"],["vasya323", "Замечательно!!!"],["dasdas", "Круто!!!"],["vasya", "Круто!!!"]]],
+	["Girl", "img/profilePhoto3.jpg", "01.05", "img/nature.jpg",  123,  [["Lena", "Здорово!!!"],["Petya", "love it!!!"]]]
+];
+
+var allPosts = [];
+
+for(var i = 0; i < users.length; i++) {
+	allPosts.push( new Item( users[i][0],  users[i][1], users[i][2], users[i][3], users[i][4], users[i][5]) );
 };
 
-var aliPost = Object.create(Person).constructor( "Ali", "img/profilePhoto.jpg", "02.03", "img/man.jpg",  235,  [["vasya", "Круто!!!"]]);
-
-var monroPost = Object.create(Person).constructor( "Monro", "img/profilePhoto2.jpg", "04.04", "img/maunt.jpg",  321,  [["Alex", "like for like!!!"],["vasya323", "Замечательно!!!"],["dasdas", "Круто!!!"],["vasya", "Круто!!!"]]);
-
-var girlPost = Object.create(Person).constructor( "Girl", "img/profilePhoto3.jpg", "01.05", "img/nature.jpg",  123,  [["Lena", "Здорово!!!"],["Petya", "love it!!!"]]);
-
-
-
-
-el.appendChild( aliPost.render() );
-el.appendChild( monroPost.render() );
-el.appendChild( girlPost.render() );
-  
+for(var i = 0; i < allPosts.length; i++) {
+	el.appendChild( allPosts[i].render() );
+};
 
 var likeEl = document.getElementsByClassName("like");
 
@@ -104,31 +105,43 @@ var likeEl = document.getElementsByClassName("like");
         likeEl[i].onclick = changeLike; 
 };
 
-   
-
-var div = document.getElementById("fly");
+var fly = document.getElementById("fly");
 var deltaX;
 
-
 function move(e) {
+   
+      
 	var pX = e.pageX;
-	div.style.left = (pX - deltaX) + "px";
-     
+	fly.style.left = (pX - deltaX) + "px";
+ 
     
 };
 
 function startDrag(e) {
 	var mouseX = e.pageX; // Get mouse coords
-	var divOffsetLeft = div.offsetLeft;
-	deltaX = mouseX - divOffsetLeft;
+	var flyOffsetLeft = fly.offsetLeft;
+	deltaX = mouseX - flyOffsetLeft;
 
 	//console.log(divOffset);
 	window.addEventListener("mousemove", move);
+     
 };
 
 function stopDrag() {
 	window.removeEventListener("mousemove", move);
+      if ( fly.offsetLeft > 20) { fly.style.left = 18 + "px"}
 };
 
-div.onmousedown = startDrag;
-div.onmouseup = stopDrag;
+fly.onmousedown = startDrag;
+fly.onmouseup = stopDrag;
+
+
+var circle = fly.getElementsByTagName("img");
+
+console.log(circle)
+
+circle.onclick = d;
+
+function d () {
+    console.log("gfgf");
+}
